@@ -15,6 +15,20 @@ node producer.js
 node consumer.js
 ```
 
+## It works with Cloud Foundry as well
+
+- Using one terminal window:
+```
+npm install
+cf push producer -b nodejs_buildpack -c 'node producer.js' --health-check-type 'process'
+cf logs producer
+```
+- Using a second terminal window:
+```
+cf push consumer -b nodejs_buildpack -c 'node consumer.js' --health-check-type 'process'
+cf logs consumer
+```
+
 
 ### consumer.js 
 ```
